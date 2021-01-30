@@ -1,0 +1,43 @@
+{% extends 'news/base.html' %}
+
+{% block title %}{{ article.title }}{% endblock %}
+
+{% block content %}
+    <div class="columns">
+        <div class="column is-three-quarters">
+            <div class="a-wrap">
+                <div class="a-info">
+                    <div>
+                        <span class="tag is-link">{{ article.category }}</span>
+                        <span>{{ article.author_name }}</span>
+                        <span>{{ article.published_at|date:"d E" }}</span>
+                    </div>
+                    <div>
+                        <h1 class="title">{{ article.title }}</h1>
+                        <p>{{ article.description }}</p>
+                    </div>
+                </div>
+                <div class="a-content">
+                    {{ article.body | safe }}
+                </div>
+                <hr>
+                <div class="a-info">
+                    <div>
+                        <span>{{ article.author_name }}</span>
+                        <span>{{ article.published_at|date:"d E" }}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="column">
+            <div>
+                <div class="article a-side-content">
+                    <div class="a-category">Новости / Реклама</div>
+                </div>
+                <div>
+                    asdasd
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

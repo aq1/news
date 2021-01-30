@@ -1,0 +1,21 @@
+<div class="column">
+    <a href="{% url 'news:article' slug=article.slug %}">
+        <div class="article a-3 card">
+            <div class="a-category">{{ article.category }}</div>
+            <div class="card-image">
+                <figure class="image is-4by3">
+                    <img src="{{ article.cover_url }}">
+                </figure>
+            </div>
+            <div class="content">
+                <div class="a-title">
+                    <b>{{ article.title }}</b>
+                    <span>{{ article.description }}</span>
+                </div>
+            </div>
+            <footer class="card-footer">
+                <div class="a-author">{{ article.author_name }}</div>
+            </footer>
+        </div>
+    </a>
+</div>

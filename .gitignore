@@ -277,3 +277,4 @@ project/media/
 .envs/*
 .idea/
 media/
+*.sqlite*

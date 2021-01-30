@@ -1,0 +1,18 @@
+<div class="columns is-variable is-2">
+    <div class="column">
+        <a href="{% url 'news:article' slug=article.slug %}">
+            <div class="article a-1">
+                <div class="a-category">{{ article.category }}</div>
+                <div class="a-1-info">
+                    <div class="a-title">
+                        <b>{{ article.title }}</b>
+                        <span>{{ article.description }}</span>
+                    </div>
+                    <div class="a-author">
+                        {{ article.author_name }}
+                    </div>
+                </div>
+            </div>
+        </a>
+    </div>
+</div>

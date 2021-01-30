@@ -1,0 +1,37 @@
+{% extends 'news/base.html' %}
+
+{% block title %}Территория добра Балаково{% endblock %}
+
+{% block content %}
+    <div class="columns is-variable is-2">
+        <div class="column is-three-quarters">
+
+            {% include 'news/articles/article_1.html' with article=articles.0 %}
+
+            <div class="columns is-variable is-2">
+                {% for article in articles|slice:"1:4" %}
+                    {% include 'news/articles/article_2.html' %}
+                {% endfor %}
+            </div>
+        </div>
+        {% include 'news/articles/side_block.html' %}
+
+    </div>
+    <div class="columns is-variable is-2">
+        {% for article in articles|slice:"4:7" %}
+            {% include 'news/articles/article_3.html' %}
+        {% endfor %}
+    </div>
+    <div class="columns is-variable is-2 is-multiline is-mobile">
+        {% for article in articles|slice:"7:" %}
+            {% include 'news/articles/article_4.html' %}
+        {% endfor %}
+    </div>
+    <div class="columns is-variable is-2 is-mobile">
+        <div class="column is-full">
+            <div id="get-more-button">
+                Еще статьи
+            </div>
+        </div>
+    </div>
+{% endblock %}
