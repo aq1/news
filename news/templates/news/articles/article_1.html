@@ -1,7 +1,7 @@
 <div class="columns is-variable is-2">
     <div class="column">
         <a href="{% url 'news:article' slug=article.slug %}">
-            <div class="article a-1">
+            <div class="article a-1" style="background-image: url('{{ article.cover_url }}');">
                 <div class="a-category">{{ article.category }}</div>
                 <div class="a-1-info">
                     <div class="a-title">

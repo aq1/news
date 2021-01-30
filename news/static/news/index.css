@@ -93,6 +93,8 @@ div.a-1 {
     height: 270px;
     font-size: 29px;
     padding: 30px 20px;
+    background-repeat: no-repeat;
+    background-position: right;
 }
 
 div.a-1-info {
