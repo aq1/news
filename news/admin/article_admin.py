@@ -27,6 +27,11 @@ class ArticleAdmin(admin.ModelAdmin):
         'category',
     ]
 
+    list_filter = [
+        'author',
+        'category',
+    ]
+
     search_fields = [
         'title',
     ]

@@ -6,7 +6,9 @@
     <div class="columns is-variable is-2">
         <div class="column is-three-quarters">
 
-            {% include 'news/article_cards/article_1.html' with article=articles.0 %}
+            {% if articles %}
+                {% include 'news/article_cards/article_1.html' with article=articles.0 %}
+            {% endif %}
 
             <div class="columns is-variable is-2">
                 {% for article in articles|slice:"1:4" %}

@@ -8,6 +8,13 @@ class Category(models.Model):
         verbose_name='Название',
     )
 
+    slug = models.SlugField(
+        verbose_name='URL путь',
+        help_text='Отображается в адресной строке',
+        default='',
+        blank=True,
+    )
+
     class Meta:
         default_related_name = 'categories'
         verbose_name = 'Категорию'
