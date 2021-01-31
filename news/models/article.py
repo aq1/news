@@ -82,14 +82,7 @@ class Article(models.Model):
         return f'Статья {self.title}'
 
     def save(self, **kwargs):
-        slug = slugify(unidecode(self.title))
-
-        if self.id:
-            slug = f'{self.id}-{slug}'
-        else:
-            slug = f'0-{slug}'
-
-        self.slug = slug
+        self.slug = slugify(unidecode(self.title))
         return super().save(**kwargs)
 
     @property

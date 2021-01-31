@@ -1,5 +1,5 @@
 <div class="column">
-    <a href="{% url 'news:article' article_id=article.id path='' %}">
+    <a href="{% url 'news:article' article_id=article.id slug=article.slug %}">
         <div class="article a-3 card">
             <div class="a-category">{{ article.category }}</div>
             <div class="card-image">

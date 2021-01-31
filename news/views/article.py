@@ -7,7 +7,7 @@ from django.shortcuts import (
 from ..models import Article
 
 
-def article(request, article_id, path=None):
+def article(request, article_id, slug=None):
     qs = Article.objects.all()
     if not request.user.is_superuser:
         qs = qs.published()
