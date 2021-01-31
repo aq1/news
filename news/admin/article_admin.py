@@ -44,7 +44,7 @@ class ArticleAdmin(admin.ModelAdmin):
     is_published.boolean = True
 
     def preview(self, obj: Article):
-        url = reverse('news:article', kwargs={'slug': obj.slug})
+        url = reverse('news:article', kwargs={'article_id': obj.id, 'slug': obj.slug})
         return mark_safe(
             f'<a href={url}>Посмотреть как будет выглядеть на сайте</a>'
         )
