@@ -4,6 +4,7 @@ from django.db import models
 from django.utils.text import slugify
 
 from model_utils.fields import MonitorField
+from unidecode import unidecode
 
 from ..enums import ArticleStatus
 from .article_queryset import ArticleQuerySet
@@ -81,7 +82,7 @@ class Article(models.Model):
         return f'Статья {self.title}'
 
     def save(self, **kwargs):
-        slug = slugify(self.title, allow_unicode=True)
+        slug = slugify(unidecode(self.title))
 
         if self.id:
             slug = f'{self.id}-{slug}'
