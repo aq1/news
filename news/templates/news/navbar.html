@@ -25,10 +25,13 @@
         </div>
 
         <div class="navbar-end">
-            <div class="navbar-item">
-                <div class="buttons">
-                </div>
-            </div>
+            {% if request.user.is_superuser %}
+                <a class="navbar-item" href="{% url 'admin:index' %}">
+                    Управление сайтом
+                </a>
+            {% endif %}
+            {% block navbar_end %}
+            {% endblock %}
         </div>
     </div>
 </nav>

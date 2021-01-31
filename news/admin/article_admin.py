@@ -1,4 +1,6 @@
 from django.contrib import admin
+from django.urls import reverse
+from django.utils.safestring import mark_safe
 
 from ..enums import ArticleStatus
 from ..models import Article
@@ -17,6 +19,7 @@ class ArticleAdmin(admin.ModelAdmin):
     readonly_fields = [
         'slug',
         'published_at',
+        'preview',
     ]
 
     list_select_related = [
@@ -39,3 +42,11 @@ class ArticleAdmin(admin.ModelAdmin):
     is_published.short_description = 'Опубликована?'
     is_published.admin_order_field = 'status'
     is_published.boolean = True
+
+    def preview(self, obj: Article):
+        url = reverse('news:article', kwargs={'slug': obj.slug})
+        return mark_safe(
+            f'<a href={url}>Посмотреть как будет выглядеть на сайте</a>'
+        )
+
+    preview.short_description = 'Превью'

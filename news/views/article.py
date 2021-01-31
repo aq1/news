@@ -7,12 +7,16 @@ from django.shortcuts import (
 from ..models import Article
 
 
-def article(request, slug):
+def article(request, article_id, path=None):
+    qs = Article.objects.all()
+    if not request.user.is_superuser:
+        qs = qs.published()
+
     try:
-        article = get_object_or_404(Article.objects.published(), id=slug.split('-')[0])
+        _article = get_object_or_404(qs, id=article_id)
     except ValueError:
         raise Http404()
     context = {
-        'article': article
+        'article': _article
     }
     return render(request, 'news/article.html', context)
