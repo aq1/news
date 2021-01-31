@@ -179,3 +179,7 @@ div.a-info > div > span {
 div.a-info > div > span.tag.is-link {
     background-color: #335794;
 }
+
+div.a-content {
+    margin-top: 45px;
+}
