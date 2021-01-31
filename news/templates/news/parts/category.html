@@ -1,0 +1,5 @@
+{% if article.is_draft %}
+    <div class="a-category">Черновик</div>
+{% else %}
+    <div class="a-category">{{ article.category }}</div>
+{% endif %}

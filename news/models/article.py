@@ -90,3 +90,7 @@ class Article(models.Model):
         if self.cover and hasattr(self.cover, 'url'):
             return self.cover.url
         return ''
+
+    @property
+    def is_draft(self):
+        return self.status == ArticleStatus.DRAFT

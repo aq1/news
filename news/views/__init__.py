@@ -1,2 +1,5 @@
-from .index import index
+from .index import (
+    index,
+    preview,
+)
 from .article import article

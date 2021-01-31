@@ -278,3 +278,4 @@ project/media/
 .idea/
 media/
 *.sqlite*
+!news/templates/news/parts

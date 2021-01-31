@@ -9,11 +9,15 @@
                 <div class="a-info">
                     <div>
                         <span class="tag is-link">{{ article.category }}</span>
-                        {% if article.status == 0 %}
+                        {% if article.is_draft %}
                             <span class="tag is-warning">Черновик</span>
                         {% endif %}
                         {% if request.user.is_superuser %}
-                            <a class="tag is-info is-light" href="{% url 'admin:news_article_change' article.id %}">Редактировать</a>
+                            <span>
+                                <a class="tag is-info is-light" href="{% url 'admin:news_article_change' article.id %}">
+                                    Редактировать
+                                </a>
+                            </span>
                         {% endif %}
                         <span>{{ article.author_name }}</span>
                         <span>{{ article.published_at|date:"d E" }}</span>

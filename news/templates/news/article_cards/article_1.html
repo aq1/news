@@ -2,7 +2,7 @@
     <div class="column">
         <a href="{% url 'news:article' article_id=article.id slug=article.slug %}">
             <div class="article a-1" style="background-image: url('{{ article.cover_url }}');">
-                <div class="a-category">{{ article.category }}</div>
+            {% include 'news/parts/category.html' with article=article %}
                 <div class="a-1-info">
                     <div class="a-title">
                         <b>{{ article.title }}</b>

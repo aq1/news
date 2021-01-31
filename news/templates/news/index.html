@@ -6,25 +6,25 @@
     <div class="columns is-variable is-2">
         <div class="column is-three-quarters">
 
-            {% include 'news/articles/article_1.html' with article=articles.0 %}
+            {% include 'news/article_cards/article_1.html' with article=articles.0 %}
 
             <div class="columns is-variable is-2">
                 {% for article in articles|slice:"1:4" %}
-                    {% include 'news/articles/article_2.html' %}
+                    {% include 'news/article_cards/article_2.html' %}
                 {% endfor %}
             </div>
         </div>
-        {% include 'news/articles/side_block.html' %}
+        {% include 'news/parts/side_block.html' %}
 
     </div>
     <div class="columns is-variable is-2">
         {% for article in articles|slice:"4:7" %}
-            {% include 'news/articles/article_3.html' %}
+            {% include 'news/article_cards/article_3.html' %}
         {% endfor %}
     </div>
     <div class="columns is-variable is-2 is-multiline is-mobile">
         {% for article in articles|slice:"7:" %}
-            {% include 'news/articles/article_4.html' %}
+            {% include 'news/article_cards/article_4.html' %}
         {% endfor %}
     </div>
     <div class="columns is-variable is-2 is-mobile">
