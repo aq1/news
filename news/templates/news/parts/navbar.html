@@ -26,6 +26,11 @@
 
         <div class="navbar-end">
             {% if request.user.is_superuser %}
+                {% if preview %}
+                    <span class="navbar-item">
+                        <span class="tag is-warning">Превью</span>
+                    </span>
+                {% endif %}
                 <a class="navbar-item" href="{% url 'admin:index' %}">
                     Управление сайтом
                 </a>
