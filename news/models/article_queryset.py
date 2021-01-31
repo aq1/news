@@ -5,10 +5,8 @@ from ..enums import ArticleStatus
 
 class ArticleQuerySet(models.QuerySet):
 
-    def published(self):
-        return self.filter(
-            status=ArticleStatus.PUBLISHED,
-        ).select_related(
+    def with_author(self):
+        return self.select_related(
             'author',
             'category',
         ).annotate(
@@ -19,4 +17,9 @@ class ArticleQuerySet(models.QuerySet):
             ),
         ).order_by(
             '-published_at',
+        )
+
+    def published(self):
+        return self.filter(
+            status=ArticleStatus.PUBLISHED,
         )
