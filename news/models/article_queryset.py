@@ -1,3 +1,7 @@
+from django.contrib.postgres.search import (
+    SearchRank,
+    SearchVector,
+)
 from django.db import models
 from django.db.models import functions
 from ..enums import ArticleStatus
@@ -23,3 +27,16 @@ class ArticleQuerySet(models.QuerySet):
         return self.filter(
             status=ArticleStatus.PUBLISHED,
         )
+
+    def search(self, search_query):
+        vector = (
+            SearchVector('title', weight='A')
+            + SearchVector('description', weight='B')
+            + SearchVector('body_text', weight='C')
+        )
+        return self.annotate(
+            rank=SearchRank(
+                vector,
+                search_query,
+            )
+        ).order_by('-rank')

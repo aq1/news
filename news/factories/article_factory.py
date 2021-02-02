@@ -26,7 +26,7 @@ class ArticleFactory(factory.django.DjangoModelFactory):
 
     @factory.lazy_attribute
     def title(self):
-        return ' '.join(fake.text().split()[:random.randint(4, 7)])
+        return ' '.join(fake.text().split()[:random.randint(4, 7)])[:50]
 
     @factory.lazy_attribute
     def category(self):

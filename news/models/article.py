@@ -5,13 +5,13 @@ from django.utils.text import slugify
 
 from model_utils.fields import MonitorField
 from unidecode import unidecode
+from bs4 import BeautifulSoup
 
 from ..enums import ArticleStatus
 from .article_queryset import ArticleQuerySet
 
 
 class Article(models.Model):
-
     author = models.ForeignKey(
         get_user_model(),
         on_delete=models.SET_NULL,
@@ -43,6 +43,7 @@ class Article(models.Model):
         verbose_name='URL статьи',
         help_text='Отображается в адресной строке',
         editable=False,
+        max_length=100,
     )
 
     cover = models.ImageField(
@@ -71,6 +72,11 @@ class Article(models.Model):
         blank=True,
     )
 
+    body_text = models.TextField(
+        default='',
+        editable=False,
+    )
+
     objects = ArticleQuerySet.as_manager()
 
     class Meta:
@@ -83,7 +89,8 @@ class Article(models.Model):
 
     def save(self, **kwargs):
         self.slug = slugify(unidecode(self.title))
-        return super().save(**kwargs)
+        self.body_text = BeautifulSoup(self.body, 'html.parser').text
+        super().save(**kwargs)
 
     @property
     def cover_url(self):

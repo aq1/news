@@ -25,6 +25,12 @@
         </div>
 
         <div class="navbar-end">
+            <div class="navbar-item">
+                <form action="{% url 'news:index' %}" method="get">
+                    <label for="search"></label>
+                    <input class="input" id="search" name="q" value="{{ search }}" type="text" placeholder="Поиск">
+                </form>
+            </div>
             {% if request.user.is_superuser %}
                 {% if preview %}
                     <a class="navbar-item" href="{{ request.path }}">
