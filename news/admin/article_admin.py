@@ -16,6 +16,19 @@ class ArticleAdmin(admin.ModelAdmin):
         'published_at',
     ]
 
+    fields = [
+        'preview',
+        'author',
+        'category',
+        'title',
+        'description',
+        'cover',
+        'status',
+        'body',
+        'slug',
+        'published_at',
+    ]
+
     readonly_fields = [
         'slug',
         'published_at',
@@ -49,9 +62,12 @@ class ArticleAdmin(admin.ModelAdmin):
     is_published.boolean = True
 
     def preview(self, obj: Article):
-        url = reverse('news:article', kwargs={'article_id': obj.id, 'slug': obj.slug})
-        return mark_safe(
-            f'<a href={url}>Посмотреть как будет выглядеть на сайте</a>'
-        )
+        if obj.id:
+            url = reverse('news:article', kwargs={'article_id': obj.id, 'slug': obj.slug})
+            return mark_safe(
+                f'<a href={url}>Посмотреть как будет выглядеть на сайте</a>'
+            )
+        else:
+            return ''
 
     preview.short_description = 'Превью'
