@@ -137,19 +137,6 @@ article.box.a-2 div.a-author {
     font-size: 14px;
 }
 
-
-@media only screen and (min-width: 1024px) {
-    article.a-2 {
-        height: 490px;
-    }
-
-    article.box.a-2 div.a-author {
-        position: absolute;
-        bottom: 1rem;
-    }
-}
-
-
 /* Button */
 
 #get-more-button {
@@ -171,17 +158,6 @@ article.box.a-2 div.a-author {
 
 
 /* Single Article */
-div.a-side-content {
-    width: 100%;
-    padding-top: 50px;
-    height: 1250px;
-}
-
-div.a-wrap {
-    width: 100%;
-    padding: 20px 60px;
-    background-color: white;
-}
 
 div.a-info > div {
     margin-bottom: 10px;
@@ -193,4 +169,13 @@ div.a-info > div > span {
 
 div.a-info > div > span.tag.is-link {
     background-color: #335794;
+}
+
+@media only screen and (max-width: 1024px) {
+    span.a-tag-category {
+        display: none;
+    }
+    span {
+        font-size: 14px;
+    }
 }

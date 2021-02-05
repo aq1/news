@@ -3,12 +3,12 @@
 {% block title %}{{ article.title }}{% endblock %}
 
 {% block content %}
-    <div class="columns">
-        <div class="column is-three-quarters">
-            <div class="a-wrap">
+    <div class="tile is-ancestor">
+        <div class="tile is-9 is-vertical is-parent">
+            <div class="tile is-child box">
                 <div class="a-info">
                     <div>
-                        <span class="tag is-link">{{ article.category }}</span>
+                        <span class="tag is-link a-tag-category">{{ article.category }}</span>
                         {% if article.is_draft %}
                             <span class="tag is-warning">Черновик</span>
                         {% endif %}
@@ -36,6 +36,13 @@
                         <span>{{ article.author_name }}</span>
                         <span>{{ article.published_at|date:"d E" }}</span>
                     </div>
+                </div>
+            </div>
+        </div>
+        <div class="tile is-parent">
+            <div class="tile is-child box a-side-content">
+                <div class="article a-side-content">
+
                 </div>
             </div>
         </div>
