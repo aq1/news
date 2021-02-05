@@ -1,21 +1,18 @@
-<div class="column">
-    <a href="{% url 'news:article' article_id=article.id slug=article.slug %}">
-        <div class="article a-2 card">
-            {% include 'news/parts/category.html' with article=article %}
-            <div class="card-image">
-                <figure class="image is-4by3">
-                    <img src="{{ article.cover_url }}">
-                </figure>
+<div class="tile is-parent">
+    <a href="{% url 'news:article' article.id article.slug %}">
+        <article class="tile is-child box a-2">
+            {% include 'news/parts/category.html' with article=articles.0 %}
+            <div class="img">
+                <img width="100%" src="{{ article.cover_url }}" alt="{{ article.slug }}-background">
             </div>
-            <div class="card-content">
+            <div class="a-content">
                 <div class="a-title">
-                    <b>{{ article.title }}</b>
-                    <span>{{ article.description }}</span>
+                    <b>{{ article.title }}</b> <span>{{ article.description }}</span>
+                </div>
+                <div class="a-author">
+                    {{ article.author_name }}
                 </div>
             </div>
-            <footer class="card-footer">
-                <div class="a-author">{{ article.author_name }}</div>
-            </footer>
-        </div>
+        </article>
     </a>
 </div>

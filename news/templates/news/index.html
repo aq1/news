@@ -3,35 +3,53 @@
 {% block title %}Территория добра Балаково{% endblock %}
 
 {% block content %}
-    <div class="columns is-variable is-2">
-        <div class="column is-three-quarters">
+    <div class="tile is-ancestor">
+        <div class="tile is-vertical is-9">
 
             {% if articles %}
                 {% include 'news/article_cards/article_1.html' with article=articles.0 %}
             {% endif %}
 
-            <div class="columns is-variable is-2">
+            <div class="tile">
                 {% for article in articles|slice:"1:4" %}
-                    {% include 'news/article_cards/article_2.html' %}
+                    {% include 'news/article_cards/article_2.html' with article=article %}
                 {% endfor %}
             </div>
         </div>
-        {% include 'news/parts/side_block.html' %}
+        <div class="tile is-parent">
+            <article class="tile is-child box">
+                <div class="content">
+                    <p class="title">Tall column</p>
+                    <p class="subtitle">With even more content</p>
+                    <div class="content">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam semper diam at erat pulvinar,
+                            at pulvinar felis blandit. Vestibulum volutpat tellus diam, consequat gravida libero rhoncus
+                            ut. Morbi maximus, leo sit amet vehicula eleifend, nunc dui porta orci, quis semper odio
+                            felis ut quam.</p>
+                        <p>Suspendisse varius ligula in molestie lacinia. Maecenas varius eget ligula a sagittis.
+                            Pellentesque interdum, nisl nec interdum maximus, augue diam porttitor lorem, et
+                            sollicitudin felis neque sit amet erat. Maecenas imperdiet felis nisi, fringilla luctus
+                            felis hendrerit sit amet. Aenean vitae gravida diam, finibus dignissim turpis. Sed eget
+                            varius ligula, at volutpat tortor.</p>
 
+                    </div>
+                </div>
+            </article>
+        </div>
     </div>
-    <div class="columns is-variable is-2">
+    <div class="tile is-ancestor">
         {% for article in articles|slice:"4:7" %}
-            {% include 'news/article_cards/article_3.html' %}
+            {% include 'news/article_cards/article_2.html' with article=article %}
         {% endfor %}
     </div>
-    <div class="columns is-variable is-2 is-multiline">
+    <div class="tile is-ancestor">
         {% for article in articles|slice:"7:" %}
-            {% include 'news/article_cards/article_4.html' %}
+            {% include 'news/article_cards/article_2.html' with article=article %}
         {% endfor %}
     </div>
-    <div class="columns is-variable is-2">
-        <div class="column is-full">
-            <div id="get-more-button">
+    <div class="tile is-ancestor">
+        <div class="tile is-parent">
+            <div id="get-more-button" class="tile is-child">
                 Еще статьи
             </div>
         </div>

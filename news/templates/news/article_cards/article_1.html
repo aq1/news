@@ -1,18 +1,15 @@
-<div class="columns is-variable is-2">
-    <div class="column">
-        <a href="{% url 'news:article' article_id=article.id slug=article.slug %}">
-            <div class="article a-1" style="background-image: url('{{ article.cover_url }}');">
+<a href="{% url 'news:article' article.id article.slug %}">
+    <div class="tile is-parent">
+        <article class="tile is-child box a-1" style="background-image: url('{{ article.cover_url }}')">
             {% include 'news/parts/category.html' with article=article %}
-                <div class="a-1-info">
-                    <div class="a-title">
-                        <b>{{ article.title }}</b>
-                        <span>{{ article.description }}</span>
-                    </div>
-                    <div class="a-author">
-                        {{ article.author_name }}
-                    </div>
+            <div class="a-content">
+                <div class="a-title">
+                    <b>{{ article.title }}</b> <span>{{ article.description }}</span>
+                </div>
+                <div class="a-author">
+                    {{ article.author_name }}
                 </div>
             </div>
-        </a>
+        </article>
     </div>
-</div>
+</a>

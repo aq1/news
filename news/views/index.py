@@ -20,7 +20,7 @@ def index(request, category_slug=None):
         qs = qs.search(search_query=search_query)
 
     context = {
-        'articles': qs[:15],
+        'articles': qs[:11],
         'preview': _preview,
         'search': search_query,
     }
