@@ -22,8 +22,19 @@ div.page-content {
     max-width: 1250px !important;
 }
 
+
+/* Navbar */
+
 nav#nav div.navbar-start {
     margin-left: 120px;
+}
+
+@media only screen and (max-width: 1024px) {
+    nav#nav div.navbar-end,
+    nav#nav div.navbar-start {
+        margin-left: 0;
+        text-align: center;
+    }
 }
 
 nav#nav {
