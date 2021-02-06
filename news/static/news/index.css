@@ -137,6 +137,25 @@ article.box.a-2 div.a-author {
     font-size: 14px;
 }
 
+@media only screen and (min-width: 1024px) {
+    article.box.a-2 {
+        min-height: 490px;
+        max-height: 490px;
+    }
+
+    article.box.a-2 div.a-author {
+        position: absolute;
+        bottom: 1rem;
+    }
+
+    article.box.a-2 div.a-title {
+        min-height: 200px;
+        max-height: 200px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+}
+
 /* Button */
 
 #get-more-button {
@@ -175,6 +194,7 @@ div.a-info > div > span.tag.is-link {
     span.a-tag-category {
         display: none;
     }
+
     span {
         font-size: 14px;
     }
