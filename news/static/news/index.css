@@ -61,13 +61,13 @@ div.page-content {
 
 article.box {
     position: relative;
+    border-radius: 0;
 }
 
 div.a-category {
     position: absolute;
     top: 0;
     left: 0;
-    border-top-left-radius: 6px;
     background-color: #335794;
     display: inline-block;
     box-sizing: border-box;
