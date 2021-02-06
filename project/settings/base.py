@@ -105,7 +105,52 @@ CKEDITOR_UPLOAD_PATH = 'editor'
 CKEDITOR_IMAGE_BACKEND = 'pillow'
 CKEDITOR_CONFIGS = {
     'default': {
-        'toolbar': 'Full',
+        'toolbar': 'Custom',
         'height': 1200,
+        'extraPlugins': 'youtube',
+        'removePlugins': 'iframe',
+        'youtube_width': '100%',
+        'youtube_height': '400px',
+        'allowedContent': True,
+        'external_plugin_resources': [(
+            'youtube',
+            '/static/ckeditor/youtube/',
+            'plugin.js',
+        )],
+        'toolbar_Custom': [
+            [
+                'Bold',
+                'Italic',
+                'Underline'
+            ],
+            [
+                'TextColor',
+                'BGColor'
+            ],
+            [
+                'NumberedList',
+                'BulletedList',
+                '-',
+                'Outdent',
+                'Indent',
+                '-',
+                'JustifyLeft',
+                'JustifyCenter',
+                'JustifyRight',
+                'JustifyBlock'
+            ],
+            [
+                'Link',
+                'Unlink'
+            ],
+            [
+                'RemoveFormat',
+                'Image',
+                'Youtube'
+            ],
+            [
+                'Source',
+            ]
+        ],
     },
 }
