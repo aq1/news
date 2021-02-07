@@ -1,7 +1,7 @@
 <div class="tile is-parent">
     <a href="{% url 'news:article' article.id article.slug %}">
         <article class="tile is-child box a-2">
-            {% include 'news/parts/category.html' with article=articles.0 %}
+            {% include 'news/parts/category.html' with article=article %}
             <div class="img">
                 <img width="100%" src="{{ article.cover_url }}" alt="{{ article.slug }}-background">
             </div>
