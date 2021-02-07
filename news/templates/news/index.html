@@ -5,6 +5,14 @@
 {% block content %}
     <div class="tile is-ancestor">
         <div class="tile is-vertical is-9">
+            <div class="tile is-parent">
+                <article class="tile is-child top-quote">
+                    <div>
+                        <span><i>"Вся моя мысль в том, что ежели люди порочные связаны между собой и составляют силу, то людям честным надо сделать только то же самое"</i></span>
+                        <span>- Л.Н. Толстой</span>
+                    </div>
+                </article>
+            </div>
 
             {% if articles %}
                 {% include 'news/article_cards/article_1.html' with article=articles.0 %}

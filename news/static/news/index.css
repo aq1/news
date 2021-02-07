@@ -17,7 +17,11 @@ img {
 /* Navbar */
 
 nav#nav div.navbar-start {
-    margin-left: 120px;
+    margin-left: 3.5rem;
+}
+
+nav#nav div.navbar-brand {
+    font-size: 1.3rem;
 }
 
 @media only screen and (max-width: 1024px) {
@@ -77,6 +81,11 @@ div.a-category {
     color: white;
     font-size: 10px;
     z-index: 100;
+}
+
+article.top-quote div {
+    background-color: transparent;
+    color: white;
 }
 
 /* Article Card 1 */
