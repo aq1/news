@@ -37,7 +37,7 @@
                     <input class="input" id="search" name="q" value="{{ search }}" type="text" placeholder="Поиск">
                 </form>
             </div>
-            {% if request.user.is_superuser %}
+            {% if request.user.is_staff %}
                 {% if preview %}
                     <a class="navbar-item" href="{{ request.path }}">
                         <span class="tag is-warning">Спрятать черновики</span>

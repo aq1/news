@@ -1,5 +1,11 @@
 {% if article.is_draft %}
     <div class="a-category">Черновик</div>
 {% else %}
-    <div class="a-category">{{ article.category }}</div>
+    {% if article.category.slug %}
+        <a href="{% url 'news:category' category_slug=article.category.slug %}">
+            <div class="a-category">{{ article.category }}</div>
+        </a>
+    {% else %}
+        <div class="a-category">{{ article.category }}</div>
+    {% endif %}
 {% endif %}
