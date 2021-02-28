@@ -44,7 +44,7 @@ def write_us(request):
 
     try:
         UserFeedback.objects.create(
-            user=request.user,
+            user=user,
             **form.cleaned_data,
         )
     except DatabaseError:
