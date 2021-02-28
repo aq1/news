@@ -38,6 +38,10 @@ def write_us(request):
     if not form.is_valid():
         return JsonResponse(form.errors, status=400)
 
+    user = request.user
+    if user.is_anonymous:
+        user = None
+
     try:
         UserFeedback.objects.create(
             user=request.user,
