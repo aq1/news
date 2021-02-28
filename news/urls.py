@@ -8,6 +8,7 @@ app_name = 'news'
 
 urlpatterns = [
     path('', views.index, name='index'),
+    path('write-us', views.write_us, name='write_us'),
     path('<int:article_id>-<slug:slug>', views.article, name='article'),
     path('<str:category_slug>', views.index, name='category'),
 ]

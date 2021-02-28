@@ -24,6 +24,10 @@ nav#nav div.navbar-brand {
     font-size: 1.3rem;
 }
 
+span#message-us {
+    cursor: pointer;
+}
+
 @media only screen and (max-width: 1024px) {
     nav#nav div.navbar-end,
     nav#nav div.navbar-start {
@@ -80,7 +84,7 @@ div.a-category {
     font-weight: bold;
     color: white;
     font-size: 10px;
-    z-index: 100;
+    z-index: 10;
 }
 
 article.top-quote div {
@@ -207,4 +211,19 @@ div.a-info > div > span.tag.is-link {
     span {
         font-size: 14px;
     }
+}
+
+/* Notification */
+
+div.notification.notification-abs {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    z-index: 11;
+    transition: opacity 700ms;
+    opacity: 0;
+}
+
+div.notification.notification-abs.is-link {
+    background-color: #335794;
 }
