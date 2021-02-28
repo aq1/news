@@ -10,14 +10,18 @@
                             <div class="field">
                                 <label class="label">Почта</label>
                                 <div class="control">
-                                    <input name="email" class="input" type="email" placeholder="Для обратной связи"
+                                    <input name="email"
+                                           class="input"
+                                           type="email"
+                                           placeholder="Для обратной связи"
+                                           value="{{ request.user.email }}"
                                            required>
                                 </div>
                             </div>
                             <div class="field">
                                 <label class="label">Имя</label>
                                 <div class="control">
-                                    <input name="name" class="input" type="text" required>
+                                    <input name="name" class="input" type="text" value="{{ request.user.last_name }} {{ request.user.first_name }}" required>
                                 </div>
                             </div>
                             <div class="field">

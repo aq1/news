@@ -54,9 +54,21 @@ class UserAdmin(BaseUserAdmin):
         }),
     )
 
+    def get_readonly_fields(self, request, obj=None):
+        if not request.user.is_superuser and obj.is_superuser:
+            return [
+                'username',
+                'password',
+                'first_name',
+                'last_name',
+            ]
+
+        return super().get_readonly_fields(request, obj)
+
     def get_fieldsets(self, request, obj=None):
         if request.user.is_superuser:
             return super().get_fieldsets(request, obj)
+
         return (
             (None, {
                 'fields': (
@@ -71,6 +83,9 @@ class UserAdmin(BaseUserAdmin):
     def get_fields(self, request, obj=None):
         if request.user.is_superuser:
             return super().get_fields(request, obj)
+
+        if obj.is_superuser:
+            return []
 
         return [
             'username',
