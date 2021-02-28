@@ -31,6 +31,27 @@
         </div>
 
         <div class="navbar-end">
+            {% if request.user.is_staff %}
+                <div class="navbar-item has-dropdown is-hoverable">
+                    <a class="navbar-link">
+                        Админ
+                    </a>
+                    <div class="navbar-dropdown">
+                        {% if preview %}
+                            <a class="navbar-item" href="{{ request.path }}">
+                                Спрятать черновики
+                            </a>
+                        {% else %}
+                            <a class="navbar-item" href="{{ request.path }}?preview=1">
+                                Показать черновики
+                            </a>
+                        {% endif %}
+                        <a class="navbar-item" href="{% url 'admin:index' %}">
+                            Управление
+                        </a>
+                    </div>
+                </div>
+            {% endif %}
             <span class="navbar-item" id="message-us">
                 Написать нам
             </span>
@@ -40,20 +61,6 @@
                     <input class="input" id="search" name="q" value="{{ search }}" type="text" placeholder="Поиск">
                 </form>
             </div>
-            {% if request.user.is_staff %}
-                {% if preview %}
-                    <a class="navbar-item" href="{{ request.path }}">
-                        <span class="tag is-warning">Спрятать черновики</span>
-                    </a>
-                {% else %}
-                    <a class="navbar-item" href="{{ request.path }}?preview=1">
-                        <span class="tag is-warning">Показать черновики</span>
-                    </a>
-                {% endif %}
-                <a class="navbar-item" href="{% url 'admin:index' %}">
-                    <span class="tag is-warning">Управление</span>
-                </a>
-            {% endif %}
             {% block navbar_end %}
             {% endblock %}
         </div>
