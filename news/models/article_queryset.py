@@ -38,5 +38,9 @@ class ArticleQuerySet(models.QuerySet):
             rank=SearchRank(
                 vector,
                 search_query,
-            )
-        ).order_by('-rank')
+            ),
+        ).order_by(
+            '-rank',
+        ).exclude(
+            rank__lte=0.2,
+        )

@@ -34,10 +34,6 @@ span#message-us {
         margin-left: 0;
         text-align: center;
     }
-
-    #search-bar {
-        padding: 0 25px;
-    }
 }
 
 nav#nav {
@@ -53,6 +49,19 @@ nav#nav a {
 nav#nav a:hover {
     color: black;
     background-color: white;
+}
+
+nav#nav div.navbar-end {
+    margin-right: 2rem;
+}
+
+nav#nav div.navbar-end .navbar-item:hover {
+    cursor: pointer;
+    color: black;
+}
+
+nav#nav [data-tooltip]:before {
+    background-color: #335794;
 }
 
 /* Index page */
@@ -226,4 +235,15 @@ div.notification.notification-abs {
 
 div.notification.notification-abs.is-link {
     background-color: #335794;
+}
+
+/* Modal */
+
+#login-modal button {
+    font-size: 1.2rem;
+}
+
+#login-modal button span.icon {
+    position: absolute;
+    left: 1rem;
 }

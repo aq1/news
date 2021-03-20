@@ -1,10 +1,11 @@
 <div class="modal" id="write-us-modal">
-    <div class="modal-background"></div>
+    <div class="modal-background" onclick="closeModal('write-us-modal')"></div>
     <div class="modal-content">
         <div class="box">
             <article>
                 <div class="media-content">
                     <div class="content">
+                        <h1 class="title">Напишите нам</h1>
                         <form id="write-us-form">
                             {% csrf_token %}
                             <div class="field">
@@ -34,7 +35,7 @@
                                 <div class="control">
                                     <button class="button is-link">Отправить</button>
                                 </div>
-                                <div class="control" id="close-modal">
+                                <div class="control" data-modal-id="write-us-modal">
                                     <button class="button is-link is-light">Закрыть</button>
                                 </div>
                             </div>

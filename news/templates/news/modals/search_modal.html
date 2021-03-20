@@ -1,0 +1,30 @@
+<div class="modal" id="search-modal">
+    <div class="modal-background" onclick="closeModal('search-modal')"></div>
+    <div class="modal-content">
+        <div class="box">
+            <article>
+                <div class="media-content">
+                    <div class="content">
+                        <form action="{% url 'news:index' %}" method="get">
+                            <div class="field has-addons">
+                                <div class="control is-expanded has-icons-left">
+                                    <input class="input"
+                                           id="search"
+                                           name="q"
+                                           type="text"
+                                           placeholder="Поиск">
+                                    <span class="icon is-small is-left">
+                                        <i class="fas fa-search"></i>
+                                    </span>
+                                </div>
+                                <div class="control">
+                                    <button class="button is-info" type="submit">Искать</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </div>
+</div>

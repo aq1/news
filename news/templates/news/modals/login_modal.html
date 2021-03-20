@@ -1,0 +1,85 @@
+<div class="modal" id="login-modal">
+    <div class="modal-background" onclick="closeModal('login-modal')"></div>
+    <div class="modal-content">
+        <div class="box">
+            <article>
+                <div class="media-content">
+                    <div class="content">
+                        <div class="columns is-vcentered">
+                            <div class="column is-half">
+                                <h1 class="title">Территория добра Балаково</h1>
+                            </div>
+                            <div class="column is-half">
+                                <div class="columns">
+                                    <div class="column is-full">
+                                        <h3>Войти</h3>
+                                    </div>
+                                </div>
+                                <div class="columns">
+                                    <div class="column is-full">
+                                        <a href="{% url 'vk_login' %}">
+                                            <button class="button is-fullwidth">
+                                            <span class="icon">
+                                              <i class="fab fa-vk"></i>
+                                            </span>
+                                                <span>Вконтакте</span>
+                                            </button>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="columns">
+                                    <div class="column is-full">
+                                        <a href="{% url 'odnoklassniki_login' %}">
+                                            <button class="button is-fullwidth">
+                                            <span class="icon">
+                                                <i class="fab fa-odnoklassniki-square"></i>
+                                            </span>
+                                                <span>Одноклассники</span>
+                                            </button>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="columns">
+                                    <div class="column is-full">
+                                        <a href="{% url 'facebook_login' %}">
+                                            <button class="button is-fullwidth">
+                                            <span class="icon">
+                                              <i class="fab fa-facebook"></i>
+                                            </span>
+                                                <span>Facebook</span>
+                                            </button>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="columns">
+                                    <div class="column is-full">
+                                        <a href="{% url 'google_login' %}">
+                                            <button class="button is-fullwidth">
+                                            <span class="icon">
+                                              <i class="fab fa-google"></i>
+                                            </span>
+                                                <span>Google</span>
+                                            </button>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="columns">
+                                    <div class="column is-full">
+                                        <a href="{% url 'twitter_login' %}">
+                                            <button class="button is-fullwidth">
+                                            <span class="icon">
+                                              <i class="fab fa-twitter"></i>
+                                            </span>
+                                                <span>Twitter</span>
+                                            </button>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </div>
+</div>

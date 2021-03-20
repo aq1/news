@@ -8,3 +8,4 @@ Faker==5.8.0
 Unidecode==1.1.2
 psycopg2-binary==2.8.6
 beautifulsoup4==4.9.3
+django-allauth==0.44.0
