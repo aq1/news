@@ -17,7 +17,7 @@
                                 </div>
                                 <div class="columns">
                                     <div class="column is-full">
-                                        <a href="{% url 'vk_login' %}">
+                                        <a href="{% url 'vk_login' %}?next={{ request.path }}">
                                             <button class="button is-fullwidth">
                                             <span class="icon">
                                               <i class="fab fa-vk"></i>
@@ -29,7 +29,7 @@
                                 </div>
                                 <div class="columns">
                                     <div class="column is-full">
-                                        <a href="{% url 'odnoklassniki_login' %}">
+                                        <a href="{% url 'odnoklassniki_login' %}?next={{ request.path }}">
                                             <button class="button is-fullwidth">
                                             <span class="icon">
                                                 <i class="fab fa-odnoklassniki-square"></i>
@@ -41,7 +41,7 @@
                                 </div>
                                 <div class="columns">
                                     <div class="column is-full">
-                                        <a href="{% url 'facebook_login' %}">
+                                        <a href="{% url 'facebook_login' %}?next={{ request.path }}">
                                             <button class="button is-fullwidth">
                                             <span class="icon">
                                               <i class="fab fa-facebook"></i>
@@ -53,7 +53,7 @@
                                 </div>
                                 <div class="columns">
                                     <div class="column is-full">
-                                        <a href="{% url 'google_login' %}">
+                                        <a href="{% url 'google_login' %}?next={{ request.path }}">
                                             <button class="button is-fullwidth">
                                             <span class="icon">
                                               <i class="fab fa-google"></i>
@@ -65,7 +65,7 @@
                                 </div>
                                 <div class="columns">
                                     <div class="column is-full">
-                                        <a href="{% url 'twitter_login' %}">
+                                        <a href="{% url 'twitter_login' %}?next={{ request.path }}">
                                             <button class="button is-fullwidth">
                                             <span class="icon">
                                               <i class="fab fa-twitter"></i>

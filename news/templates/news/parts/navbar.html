@@ -76,7 +76,7 @@
                         </span>
                     </a>
                     <div class="navbar-dropdown">
-                        <form action="{% url 'account_logout' %}" method="post">
+                        <form action="{% url 'account_logout' %}?next={{ request.path }}" method="post">
                             {% csrf_token %}
                             <a class="navbar-item" onclick="this.parentElement.submit()">
                                 Выйти

@@ -2,6 +2,16 @@
 
 {% block title %}{{ article.title }}{% endblock %}
 
+{% block head %}
+    <meta property="og:title" content="{{ article.title }} - Территория добра Балаково">
+    <meta property="og:description" content="{{ article.category }} - {{ article.description }}">
+    <meta property="og:image" content="{{ article.cover.url }}">
+    <meta property="og:url" content="{{ request.path }}">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta property="og:site_name" content="Территория добра Балаково">
+    <meta name="twitter:image:alt" content="{{ article.category }} - {{ article.description }}">
+{% endblock %}
+
 {% block content %}
     <div class="tile is-ancestor">
         <div class="tile is-9 is-vertical is-parent">
@@ -47,4 +57,63 @@
             </div>
         </div>
     </div>
+    <div class="tile is-ancestor">
+        <div class="tile is-parent">
+            <div class="tile is-child box">
+                {% for comment in comments %}
+                    {{ comment }}
+                {% endfor %}
+                <div class="columns">
+                    <div class="column is-half">
+                        <form action="{% url 'news:post_comment' %}" method="post">
+                            <div class="control">
+                                <textarea
+                                        name="comment"
+                                        class="textarea"
+                                        placeholder="Хотите как-то прокомментировать?">
+                                </textarea>
+                                <button
+                                        id="post-comment"
+                                        type="submit"
+                                        class="button is-info">
+                                    Написать
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <style>
+
+        div.a-info > div {
+            margin-bottom: 10px;
+        }
+
+        div.a-info > div > span {
+            margin-right: 15px;
+        }
+
+        div.a-info > div > span.tag.is-link {
+            background-color: #335794;
+        }
+
+        button#post-comment {
+            margin-top: 1rem;
+            float: right;
+        }
+
+        @media only screen and (max-width: 1024px) {
+            span.a-tag-category {
+                display: none;
+            }
+
+            span {
+                font-size: 14px;
+            }
+        }
+    </style>
+
 {% endblock %}

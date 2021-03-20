@@ -14,6 +14,10 @@ img {
     object-fit: cover;
 }
 
+button.is-info {
+    background-color: #335794 !important;
+}
+
 /* Navbar */
 
 nav#nav div.navbar-start {
@@ -195,31 +199,6 @@ article.box.a-2 div.a-author {
 
 #get-more-button:hover {
     background-color: #133669;
-}
-
-
-/* Single Article */
-
-div.a-info > div {
-    margin-bottom: 10px;
-}
-
-div.a-info > div > span {
-    margin-right: 15px;
-}
-
-div.a-info > div > span.tag.is-link {
-    background-color: #335794;
-}
-
-@media only screen and (max-width: 1024px) {
-    span.a-tag-category {
-        display: none;
-    }
-
-    span {
-        font-size: 14px;
-    }
 }
 
 /* Notification */
