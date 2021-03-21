@@ -49,7 +49,7 @@
                 </div>
             </div>
         </div>
-        <div class="tile is-parent">
+        <div class="tile is-parent is-hidden-touch">
             <div class="tile is-child box a-side-content">
                 <div class="article a-side-content">
 
@@ -57,33 +57,56 @@
             </div>
         </div>
     </div>
-    <div class="tile is-ancestor">
-        <div class="tile is-parent">
-            <div class="tile is-child box">
-                {% for comment in comments %}
-                    {{ comment }}
-                {% endfor %}
-                <div class="columns">
-                    <div class="column is-half">
-                        <form action="{% url 'news:post_comment' %}" method="post">
-                            <div class="control">
-                                <textarea
-                                        name="comment"
-                                        class="textarea"
-                                        placeholder="Хотите как-то прокомментировать?">
-                                </textarea>
-                                <button
-                                        id="post-comment"
-                                        type="submit"
-                                        class="button is-info">
-                                    Написать
-                                </button>
+    <div class="columns">
+        <div class="column is-9">
+            <div class="tile is-ancestor">
+                <div class="tile is-parent is-vertical">
+                    <div class="tile is-child box">
+                        <div class="columns">
+                            <div data-modal-id="login-modal" class="column is-full"
+                                 style="font-size: 1.2rem; cursor: pointer">
+                                <h1>Хотите что-то сказать?</h1>
+                                <h1 class="has-text-link">Зарегистрируйтесь или войдите</h1>
                             </div>
-                        </form>
+                        </div>
+                    </div>
+                    <div class="tile is-child box">
+                        {% for comment in comments %}
+                            {% include 'news/parts/comment.html' with comment=comment %}
+                        {% endfor %}
+                        {% if comments %}
+                            <br>
+                        {% endif %}
+                        <div class="columns">
+                            {% if not request.user.is_anonymous %}
+                                <div class="column is-half">
+                                <form id="comment-form" method="post">
+                                    {% csrf_token %}
+                                    <div class="control">
+                                            <textarea
+                                                    name="body"
+                                                    class="textarea"
+                                                    placeholder="Хотите как-то прокомментировать?">
+                                            </textarea>
+                                        <button
+                                                id="post-comment"
+                                                type="submit"
+                                                class="button is-info">
+                                            Написать
+                                        </button>
+                                    </div>
+                                </form>
+                            {% endif %}
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
+
+    <div class="notification notification-abs is-danger is-hidden" id="comment-error">
+        Произошла ошибка. Попробуйте позже.
     </div>
 
     <style>
@@ -115,5 +138,35 @@
             }
         }
     </style>
+    <script>
+        const commentForm = document.getElementById('comment-form');
 
+        commentForm.onsubmit = async (e) => {
+            e.preventDefault();
+
+            let response = await fetch('{% url 'news:post_comment' article_id=article.id %}', {
+                method: 'POST',
+                body: new FormData(commentForm)
+            });
+
+            if (response.status === 429) {
+                return;
+            }
+
+            if (response.ok) {
+                document.querySelector('#comment-form textarea').value = '';
+                window.location.reload();
+            } else {
+                let notification = document.getElementById('comment-error');
+                notification.classList.remove('is-hidden');
+                notification.style.opacity = '1';
+                setTimeout(() => {
+                    notification.style.opacity = '0';
+                    notification.addEventListener('transitionend', () => {
+                        notification.classList.add('is-hidden');
+                    });
+                }, 5000);
+            }
+        };
+    </script>
 {% endblock %}

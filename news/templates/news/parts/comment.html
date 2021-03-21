@@ -1,0 +1,24 @@
+{% load static %}
+
+<article class="media">
+    <figure class="media-left">
+        <p class="image is-64x64">
+            {% if comment.user.avatar %}
+                <img src="" alt="">
+            {% else %}
+                <img src="{% static 'news/avatar_placeholder.gif' %}" alt="">
+            {% endif %}
+        </p>
+    </figure>
+    <div class="media-content">
+        <div class="content">
+            <p>
+                <strong>{{ comment.author.first_name }} {{ comment.author.last_name }}</strong>
+                <br>
+                <small>{{ comment.created_at | date:"d.m H:i" }}</small>
+                <br>
+                {{ comment.body }}
+            </p>
+        </div>
+    </div>
+</article>

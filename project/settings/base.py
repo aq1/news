@@ -33,7 +33,7 @@ THIRD_PARTY_APPS = [
     'allauth.socialaccount.providers.odnoklassniki',
     'allauth.socialaccount.providers.google',
     'allauth.socialaccount.providers.facebook',
-    'allauth.socialaccount.providers.twitter',
+    'allauth.socialaccount.providers.discord',
 ]
 
 LOCAL_APPS = [

@@ -3,6 +3,7 @@ import datetime
 from django import forms
 from django.db import DatabaseError
 from django.http import JsonResponse
+from django.views.decorators.http import require_http_methods
 
 from ..models import UserFeedback
 
@@ -23,6 +24,7 @@ class WriteUsForm(forms.Form):
     )
 
 
+@require_http_methods(['post'])
 def write_us(request):
     now = datetime.datetime.now()
     try:
@@ -48,7 +50,7 @@ def write_us(request):
             **form.cleaned_data,
         )
     except DatabaseError:
-        return JsonResponse({}, status=201)
+        return JsonResponse({}, status=400)
 
     request.session['write_us_last_request'] = now.isoformat()
     return JsonResponse({}, status=201)

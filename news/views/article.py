@@ -4,6 +4,7 @@ from django.shortcuts import (
 )
 
 from ..models import Article
+from ..models import Comment
 
 
 def article(request, article_id, slug=None):
@@ -12,7 +13,14 @@ def article(request, article_id, slug=None):
         qs = qs.published()
 
     context = {
-        'article': get_object_or_404(qs, id=article_id)
+        'article': get_object_or_404(qs, id=article_id),
+        'comments': Comment.objects.select_related(
+            'author',
+        ).filter(
+            article_id=article_id,
+        ).order_by(
+            '-created_at',
+        )[:10],
     }
 
     return render(request, 'news/article.html', context)

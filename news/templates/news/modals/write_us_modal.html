@@ -63,7 +63,7 @@
     form.onsubmit = async (e) => {
         e.preventDefault();
 
-        let response = await fetch('/write-us', {
+            let response = await fetch('{% url 'news:write_us' %}', {
             method: 'POST',
             body: new FormData(form)
         });
